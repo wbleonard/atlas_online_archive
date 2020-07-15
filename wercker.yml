@@ -7,6 +7,7 @@
 # Read more about containers on our dev center
 # https://devcenter.wercker.com/overview-and-core-concepts/containers/
 box: python
+
 # You can also use services such as databases. Read more on our dev center:
 # https://devcenter.wercker.com/administration/services/
 # services:
@@ -26,9 +27,9 @@ build:
   # https://devcenter.wercker.com/development/steps/
   steps:
     # A step that sets up the python virtual environment
-    - virtualenv:
-        name: setup virtual environment
-        install_wheel: false # Enable wheel to speed up builds (experimental)
+    #- virtualenv:
+    #    name: setup virtual environment
+    #    install_wheel: false # Enable wheel to speed up builds (experimental)
 
     # # Use this virtualenv step for python 3.2
     # - virtualenv
@@ -37,6 +38,7 @@ build:
 
     # A step that executes `pip install` command.
     - pip-install 
+        packages_list: "virtualenv"
 
     # # This pip-install clears the local wheel cache
     # - pip-install:
